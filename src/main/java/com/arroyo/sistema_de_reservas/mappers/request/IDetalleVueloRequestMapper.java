@@ -1,0 +1,17 @@
+package com.arroyo.sistema_de_reservas.mappers.request;
+
+import com.arroyo.sistema_de_reservas.persistenc.entity.DetalleVuelo;
+import com.arroyo.sistema_de_reservas.service.dao.response.DetalleVueloResponseDao;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+import java.util.List;
+
+@Mapper(componentModel = "spring")
+public interface IDetalleVueloRequestMapper {
+
+    @Mapping(target = "linkPasajero", source = "pasajeroId")
+    DetalleVueloResponseDao toDetalleVueloDao(DetalleVuelo detalleVuelo);
+
+    List<DetalleVueloResponseDao> toDetalleVueloDaoList(List<DetalleVuelo> detalleVueloList);
+}
